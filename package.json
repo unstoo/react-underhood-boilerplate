@@ -20,6 +20,12 @@
       "@babel/preset-react"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run check",
+      "pre-push": "npm run test"
+    }
+  },
   "jest": {},
   "dependencies": {},
   "devDependencies": {
@@ -46,6 +52,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^23.6.0",
+    "husky": "^4.0.10",
     "prettier": "1.18.2",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
