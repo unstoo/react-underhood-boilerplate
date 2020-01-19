@@ -10,6 +10,6 @@ test('jsx works', () => {
   expect(app.render()).toEqual(['h1', { prop1: 'prop value' }, ' Hello World '])
 })
 
-test('render to string', () => {
+test.skip('render to string', () => {
   expect(OwnReact.renderToString(App)).toBeDefined()
 })
