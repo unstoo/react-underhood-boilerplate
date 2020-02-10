@@ -1,11 +1,10 @@
-const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
   entry: ['@babel/polyfill', './samples/index.js'],
   output: {
-    path: __dirname + '/public',
+    path: `${__dirname}/public`,
     filename: 'bundle.js',
   },
 
@@ -14,8 +13,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.(jsx?)$/,
+        exclude: /(node_modules)/,
         use: [
           {
             loader: 'babel-loader',
@@ -31,6 +30,10 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 
   plugins: [new webpack.HotModuleReplacementPlugin()],
