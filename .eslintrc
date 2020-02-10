@@ -1,0 +1,16 @@
+{
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier", "jest"],
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "OwnReact"
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
