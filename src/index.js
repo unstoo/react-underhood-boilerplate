@@ -1,8 +1,7 @@
 class OwnReact {
   static createElement(...args) {
-    return [...args]
+    return [...args];
   }
-  static renderToString() {}
 }
 
-export default OwnReact
+export default OwnReact;

@@ -1,5 +1,7 @@
-import App from './App.jsx'
+import OwnReact from "../src";
+import App from "./App";
 
-const app = new App()
-// eslint-disable-next-line no-console
-console.log(app.render())
+const root = document.getElementById("root");
+
+// eslint-disable-next-line react/no-deprecated
+OwnReact.render(App, root);

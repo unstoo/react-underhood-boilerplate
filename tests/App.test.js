@@ -1,15 +1,5 @@
-import App from '../samples/App'
-import OwnReact from '../src'
+import App from "../samples/App";
 
-test('nothing here', () => {
-  expect(1 + 2).toBe(3)
-})
-
-test('jsx works', () => {
-  const app = new App()
-  expect(app.render()).toEqual(['h1', { prop1: 'prop value' }, ' Hello World '])
-})
-
-test.skip('render to string', () => {
-  expect(OwnReact.renderToString(App)).toBeDefined()
-})
+test("jsx works", () => {
+  expect(App).toEqual(["h1", { prop1: "prop value" }, "Hello, World!"]);
+});
