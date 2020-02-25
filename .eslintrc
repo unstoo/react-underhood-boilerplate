@@ -1,6 +1,7 @@
 {
   "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["prettier", "jest"],
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "jest/globals": true
@@ -11,6 +12,7 @@
     }
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/prop-types": "off"
   }
 }
