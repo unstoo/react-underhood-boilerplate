@@ -1,5 +1,5 @@
 import OwnReact from "../src";
-import List, { getData } from "./App";
+import List, { getData } from "./List";
 
 const root = document.getElementById("root");
 
