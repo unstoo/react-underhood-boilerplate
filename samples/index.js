@@ -1,7 +1,13 @@
 import OwnReact from "../src";
-import App from "./App";
+import List, { getData } from "./App";
 
 const root = document.getElementById("root");
 
-// eslint-disable-next-line react/no-deprecated
-OwnReact.render(App, root);
+const renderApp = data => {
+  // eslint-disable-next-line react/no-deprecated
+  OwnReact.render(List(data), root);
+};
+renderApp(getData());
+setInterval(() => {
+  renderApp(getData());
+}, 5000);
