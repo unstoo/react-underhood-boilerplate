@@ -1,4 +1,5 @@
 import OwnReact from "../src";
+import Component from "../src/Component";
 import alphabet from "./data";
 
 function swap(arr, pairsIndecies) {
@@ -31,27 +32,42 @@ function shuffle(arr) {
   }
   return swap(arr, pairsIndecies);
 }
+class List extends Component {
+  constructor(props) {
+    super(props);
+    const { colors, data, shuffleRate } = props;
+    this.state.data = data;
+    this.state.colors = colors;
+    this.state.shouldShuffle = false;
+    this.state.timer =
+      shuffleRate && setInterval(this.shuffle.bind(this), shuffleRate);
+  }
 
-const getDataFactory = array => {
-  let once = true;
-  return () => {
-    if (once) {
-      once = false;
-      return array;
-    }
-    return shuffle(array);
-  };
-};
+  shuffle() {
+    const { data, colors } = this.state;
+    this.setState({
+      shouldShuffle: true,
+      data: shuffle(data),
+      colors: shuffle(colors)
+    });
+  }
 
-const List = data => {
-  return (
-    <section>
-      {data.map(letter => (
-        <div>{letter}</div>
-      ))}
-    </section>
-  );
-};
+  render() {
+    const { data, colors } = this.state;
 
-export default List;
-export const getData = getDataFactory(alphabet);
+    return (
+      <section>
+        <h3 style={`color: ${colors[1]};`}>CSSSR School</h3>
+        {data.map(item => (
+          <div>{item}</div>
+        ))}
+      </section>
+    );
+  }
+}
+
+const colors = ["red", "green", "teal", "gold", "black"];
+
+const App = <List shuffleRate={5000} data={alphabet} colors={colors} />;
+
+export default App;
